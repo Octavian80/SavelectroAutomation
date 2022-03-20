@@ -20,6 +20,8 @@ namespace SavelectroAutomation.Tests
         public ExtentTest _test;
         public string testName;
 
+        protected static string loginUrlPath = "login";
+        protected static string registrationUrlPath = "inregistrare";
 
         [OneTimeSetUp]
         protected void ExtentStart()
