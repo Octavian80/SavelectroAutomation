@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Tests\CartAdd\" />
-    <Folder Include="Tests\CategoryMenu\" />
     <Folder Include="TestData\" />
   </ItemGroup>
 
