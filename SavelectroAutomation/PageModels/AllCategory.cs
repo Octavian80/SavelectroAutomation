@@ -16,13 +16,19 @@ namespace SavelectroAutomation.PageModels
 
         }
 
-        public void SelectAllCategories()
+        public Boolean SelectAllCategories(string categorie)
         {
             var allCategory = driver.FindElement(By.Id(allCategorySelector));
             Actions actions = new Actions(driver);
             actions.MoveToElement(allCategory).Build().Perform();
-            var category = driver.FindElements(By.CssSelector(categorySelector));
-            Console.WriteLine(category.Count);
+            var categorys = driver.FindElements(By.CssSelector(categorySelector));
+  
+            List<string> validations = new List<string>();
+            foreach (IWebElement element in categorys)
+            {
+                validations.Add(element.Text.ToLower());
+            }
+            return validations.Contains(categorie);
 
         }
     }

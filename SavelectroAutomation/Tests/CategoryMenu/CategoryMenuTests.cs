@@ -13,7 +13,7 @@ namespace SavelectroAutomation.Tests.CategoryMenu
 
         [Test]
 
-        public void Move()
+        public void CheckMainCategory()
         {
             testName = TestContext.CurrentContext.Test.Name;
             _test = _extent.CreateTest(testName);
@@ -21,7 +21,7 @@ namespace SavelectroAutomation.Tests.CategoryMenu
             MainPage mp = new MainPage(_driver);
             mp.AcceptCookies();
             AllCategory cm = new AllCategory(_driver);
-            cm.SelectAllCategories();
+            Assert.IsTrue(cm.SelectAllCategories("living then"));
             
 
         }
