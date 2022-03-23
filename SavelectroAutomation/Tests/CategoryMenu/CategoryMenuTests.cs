@@ -21,9 +21,20 @@ namespace SavelectroAutomation.Tests.CategoryMenu
             MainPage mp = new MainPage(_driver);
             mp.AcceptCookies();
             AllCategory cm = new AllCategory(_driver);
-            Assert.IsTrue(cm.SelectAllCategories("living then"));
+            Assert.IsTrue(cm.VerifyAllCategories("living then"));
             
 
+        }
+        [Test]
+        public void ClickOnAItemCategory()
+        {
+            testName = TestContext.CurrentContext.Test.Name;
+            _test = _extent.CreateTest(testName);
+            _driver.Navigate().GoToUrl(url);
+            MainPage mp = new MainPage(_driver);
+            mp.AcceptCookies();
+            AllCategory cm = new AllCategory(_driver);
+            cm.SelectOneProduct(15,2);
         }
     }
 }
