@@ -34,7 +34,11 @@ namespace SavelectroAutomation
 
             return fluentWait.Until(x => x.FindElement(locator));
         }
-
+        public static IWebElement WaitForElementClickable(IWebDriver driver, int seconds, By locator)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(locator));
+        }
         public static void PrintCookies (ICookieJar cookies)
         {
             foreach (Cookie c in cookies.AllCookies)
