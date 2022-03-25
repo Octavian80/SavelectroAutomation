@@ -1,0 +1,6 @@
+﻿email,password,emailError,passEmptyErorr,passLengthError,
+aaa@ro,,Valoarea introdusa trebuie sa fie o adresa de email valida.,Aceasta valoare este obligatorie.,,
+aaa@ro.ro,123,,,Parola trebuie sa contina litere si cifre si trebuie sa aiba minim 6 caractere.,
+,1234kkk,Aceasta valoare este obligatorie.,,,
+,,Aceasta valoare este obligatorie.,Aceasta valoare este obligatorie.,,
+octavianautomation@yahoo.com,1234kkk,,,,Datele de conectare introduse nu sunt valide.

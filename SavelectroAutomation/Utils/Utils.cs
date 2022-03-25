@@ -16,6 +16,9 @@ namespace SavelectroAutomation
 {
     public class Utils
     {
+
+        
+
         public static IWebElement WaitForElement(IWebDriver driver , int seconds, By locator)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
@@ -285,6 +288,17 @@ namespace SavelectroAutomation
             return dictionaryList;
         }
 
+        public static IWebElement FindElementSafe(IWebDriver driver, By by)
+        {
+            try
+            {
+                return driver.FindElement(by);
+            }
+            catch (NoSuchElementException)
+            {
+                return null;
+            }
+        }
 
 
     }
