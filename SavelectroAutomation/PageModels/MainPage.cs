@@ -11,6 +11,7 @@ namespace SavelectroAutomation.PageModels
 
         const string cookiesAcceptSelector = "#cookie_policy_links > a"; // css selector
         const string accesAccount = "menu_link_1";//id
+        const string contactSelector = "menu_link_9";//id
 
 
         public MainPage(IWebDriver driver) : base(driver)
@@ -25,6 +26,11 @@ namespace SavelectroAutomation.PageModels
         public void ClickAccesAccount()
         {
             driver.FindElement(By.Id(accesAccount)).Click();
+        }
+
+        public void AccesContactForm()
+        {
+            driver.FindElement(By.Id(contactSelector)).Click();
         }
     }
 }

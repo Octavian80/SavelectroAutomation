@@ -22,6 +22,7 @@ namespace SavelectroAutomation.Tests
 
         protected static string loginUrlPath = "login";
         protected static string registrationUrlPath = "inregistrare";
+        protected static string contactUrlPath = "contact";
 
         [OneTimeSetUp]
         protected void ExtentStart()

@@ -1,0 +1,7 @@
+﻿name,email,company,phone,message,nameError,emailErorr,messageError
+aaa,,Ludacris,lipsa,lipsa,,Aceasta valoare este obligatorie.,
+,,,,,Aceasta valoare este obligatorie.,Aceasta valoare este obligatorie.,Aceasta valoare este obligatorie.
+aaa,a@ro,Luda,074555555,aaaaa,,Valoarea introdusa trebuie sa fie o adresa de email valida.,
+,a@ro.ro,Luda,074555554,aaaaa,Aceasta valoare este obligatorie.,,
+aaa,a@ro.ro,Luda,074444444,,,,Aceasta valoare este obligatorie.
+,a@ro,Luda,07455555,,Aceasta valoare este obligatorie.,Valoarea introdusa trebuie sa fie o adresa de email valida.,Aceasta valoare este obligatorie.
