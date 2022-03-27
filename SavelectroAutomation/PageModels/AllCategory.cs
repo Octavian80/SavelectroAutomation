@@ -34,7 +34,7 @@ namespace SavelectroAutomation.PageModels
             List<string> validations = new List<string>();
             foreach (IWebElement element in categorys)
             {
-                validations.Add(element.Text.ToLower());
+                validations.Add(element.Text);
             }
             return validations.Contains(categorie);
 
