@@ -32,5 +32,10 @@ namespace SavelectroAutomation.PageModels
         {
             driver.FindElement(By.Id(contactSelector)).Click();
         }
+
+        public void AccesAccount()
+        {
+            driver.FindElement(By.Id(accesAccount)).Click();
+        }
     }
 }
