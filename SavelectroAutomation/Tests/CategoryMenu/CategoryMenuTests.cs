@@ -46,7 +46,29 @@ namespace SavelectroAutomation.Tests.CategoryMenu
             Assert.IsTrue(lp.CheckLoginPage("Ai deja un cont?"));
             lp.Login("sandu@yahoo.com", "Automatic");
             AllCategory cm = new AllCategory(_driver);
-            cm.SelectOneProduct(15,2);
+            cm.AddToCartOneProduct(15,2);          
+        }
+
+        [Test]
+
+        public void AddToCartMoreProducts()
+        {
+            testName = TestContext.CurrentContext.Test.Name;
+            _test = _extent.CreateTest(testName);
+            _driver.Navigate().GoToUrl(url);
+            MainPage mp = new MainPage(_driver);
+            mp.AcceptCookies();
+            mp.ClickAccesAccount();
+            LoginPage lp = new LoginPage(_driver);
+            Assert.IsTrue(lp.CheckLoginPage("Ai deja un cont?"));
+            lp.Login("sandu@yahoo.com", "Automatic");
+            AllCategory cm = new AllCategory(_driver);
+            cm.AddToCartMoreProducts(1, 1);
+            Assert.IsTrue(cm.CheckCartPage("Cos de cumparaturi"));
+            cm.CloseCart();
+            cm.AddToCartMoreProducts(2, 1);
+            Assert.IsTrue(cm.CheckCartPage("Cos de cumparaturi"));
+
         }
     }
 }

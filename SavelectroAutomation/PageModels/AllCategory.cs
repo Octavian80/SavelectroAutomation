@@ -16,7 +16,8 @@ namespace SavelectroAutomation.PageModels
         const string itemsSelector = "prod-title";//class
         const string cartButtonSelector = "[id ^=btn_cart_main_]";//id
         const string submitSelector = "#fancybox-container-1 > div.fancybox-inner > div.fancybox-stage > div > div > div > div.fancy-footer > a.btn.btn-primary.float-right.d-none.d-lg-inline-block";//css
-        const string cartLabel = "#fancy-title";//class
+        const string cartLabelSelector = "#fancybox-container-1 > div.fancybox-inner > div.fancybox-stage > div > div > div > h2";//css
+        const string closeCartSelector = "fancybox-close-small";//class
 
 
         public AllCategory(IWebDriver driver) : base(driver)
@@ -40,7 +41,7 @@ namespace SavelectroAutomation.PageModels
 
         }
 
-        public void SelectOneProduct(int itemIndex, int subcategoryIndex) // method to add to chart one product
+        public void AddToCartOneProduct(int itemIndex, int subcategoryIndex) // method to add to chart one product
         {
             var allCategory = driver.FindElement(By.Id(allCategorySelector));
             Actions actions = new Actions(driver);
@@ -69,6 +70,47 @@ namespace SavelectroAutomation.PageModels
             var confirmButton = wait.Until(ExpectedConditions.ElementExists(By.CssSelector(submitSelector)));           
             Console.WriteLine(confirmButton.Text);
             confirmButton.Click();*/
+        }
+
+        public void AddToCartMoreProducts(int itemIndex, int subcategoryIndex) // method to add to chart one product
+        {
+            var allCategory = driver.FindElement(By.Id(allCategorySelector));
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(allCategory).Build().Perform();
+            var categorys = driver.FindElements(By.CssSelector(categorySelector));
+            Console.WriteLine(categorys.Count);
+            var item = categorys[itemIndex];
+            Console.WriteLine(item.Text);
+            item.Click();
+            var items = driver.FindElements(By.ClassName(itemsSelector));
+            Console.WriteLine(items.Count);
+            foreach (IWebElement element in items)
+            {
+                Console.WriteLine(element.Text);
+            }
+            var subcategoryItem = items[subcategoryIndex];
+            subcategoryItem.Click();
+            var buttonCart = driver.FindElement(By.CssSelector(cartButtonSelector));
+            buttonCart.Click();
+            /*driver.SwitchTo().ParentFrame();*/
+            var cartLabel = Utils.WaitForElementClickable(driver, 10, By.CssSelector(cartLabelSelector));
+            Console.WriteLine(cartLabel.Text);
+           
+            /*driver.SwitchTo().ParentFrame();
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            var confirmButton = wait.Until(ExpectedConditions.ElementExists(By.CssSelector(submitSelector)));           
+            Console.WriteLine(confirmButton.Text);
+            confirmButton.Click();*/
+        }
+        public void CloseCart()
+        {
+            var closeCart = Utils.WaitForElementClickable(driver, 10, By.ClassName(closeCartSelector));
+            closeCart.Click();
+        }
+
+        public Boolean CheckCartPage(string label)
+        {
+            return String.Equals(label.ToLower(), Utils.WaitForFluentElement(driver, 10, By.CssSelector(cartLabelSelector)).Text.ToLower());
         }
     }
 }
