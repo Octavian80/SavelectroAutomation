@@ -19,6 +19,8 @@ namespace SavelectroAutomation.Tests.Contact
             }
         }
 
+        [Category("ContactTest")]
+
         [Test]
 
         public void ContactPositive()
@@ -35,6 +37,7 @@ namespace SavelectroAutomation.Tests.Contact
             cop.Contact("octavian","aaa@ro.ro","Steel","0741888999","Super bine pus la punct website");
         }
 
+        [Category("ContactTest")]
         [Test, TestCaseSource("GetCredentialsDataCsv")]
 
         public void ContactNegative(string name, string email, string company, string phone, string message,string nameError,string emailError,string messageError)

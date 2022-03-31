@@ -19,8 +19,8 @@ namespace SavelectroAutomation.Tests.Register
             }
         }
 
-      
 
+        [Category("RegistrationTests")]
         [Test]
 
         public void PersonRegisterPositiveTest()
@@ -36,6 +36,7 @@ namespace SavelectroAutomation.Tests.Register
             rp.PersonRegistration("aaaa@go.ro", "spartcus", "Georgel", "Romania", "Lacramioarei", "5555555555");
 
         }
+        [Category("RegistrationTests")]
         [Test]
         public void CompanyRegisterTest()
         {
@@ -51,13 +52,8 @@ namespace SavelectroAutomation.Tests.Register
 
         }
 
-        /* [TestCase("aa@ro","123456GGG","AAA", "Romania","Stea","0744444444", "Valoarea introdusa trebuie sa fie o adresa de email valida.","","","","","")]
-         [TestCase("","123456GGG","AAA", "Romania","Stea","0744444444", "Aceasta valoare este obligatorie.","", "","","","")]
-         [TestCase("aa@ro.ro","123456GGG","AAA", "Romania","Stea","0744","","", "","","", "Valoarea introdusa nu este valida.")]
-         [TestCase("aa@ro.ro","123","AAA","Romania","Stea", "0744444444","","", "Parola trebuie sa contina litere si cifre si trebuie sa aiba minim 6 caractere.", "", "","")]
-         [TestCase("aa@ro.ro", "123456GGG","","Romania","Stea", "0744444444","","","", "Aceasta valoare este obligatorie.", "","")]
-         [TestCase("aa@ro.ro","123456GGG", "AAA", "Romania","", "0744444444","","","","", "Aceasta valoare este obligatorie.", "")]
-         [TestCase("","", "", "Romania","","", "Aceasta valoare este obligatorie.", "Aceasta valoare este obligatorie.", "", "Aceasta valoare este obligatorie.", "Aceasta valoare este obligatorie.", "Aceasta valoare este obligatorie.")]*/
+
+        [Category("RegistrationTests")]
 
         [Test, TestCaseSource("GetCredentialsDataCsv")]
         public void PersonRegisterNegative(string email, string password, string name, string country,string adress, string phone,string emailError,string passEmptyError,string passLengthError,string nameError,string adressError,string telephoneError)
@@ -79,6 +75,7 @@ namespace SavelectroAutomation.Tests.Register
             Assert.AreEqual(telephoneError, rp.PhoneError());
         }
 
+        [Category("RegistrationTests")]
         [TestCase("aaaa@aa.ro","aaaaaa","","pppppp","Romania","aaaaa","074444444","","Aceasta valoare este obligatorie.","")]
         
         public void CompanyNameRegisterNegative(string email, string password, string companyName,string person,string country, string adress, string phone,string emailError, string companyNameError,string personError)
@@ -96,7 +93,7 @@ namespace SavelectroAutomation.Tests.Register
             Assert.AreEqual(companyNameError, rp.CompanyNameError());                 
 
         }
-
+        [Category("RegistrationTests")]
         [TestCase("aaaa@aa.ro", "aaaaaa","Iron","", "Romania", "aaaaa", "074444444", "","","Aceasta valoare este obligatorie.")]
 
         public void CompanyPersonRegisterNegative(string email, string password, string companyName, string person, string country, string adress, string phone, string emailError, string companyNameError, string personError)

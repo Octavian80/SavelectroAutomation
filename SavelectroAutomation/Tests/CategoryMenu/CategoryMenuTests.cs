@@ -18,7 +18,7 @@ namespace SavelectroAutomation.Tests.CategoryMenu
                 yield return new TestCaseData(values);
             }
         }
-
+        [Category("CategoryTests")]
         [Test, TestCaseSource("GetCredentialsDataCsv")]
 
         public void CheckMainCategory(string category)
@@ -33,6 +33,8 @@ namespace SavelectroAutomation.Tests.CategoryMenu
             
 
         }
+
+        [Category("CategoryTests")]
         [Test]
         public void AddToCart()
         {
@@ -44,11 +46,15 @@ namespace SavelectroAutomation.Tests.CategoryMenu
             mp.ClickAccesAccount();
             LoginPage lp = new LoginPage(_driver);
             Assert.IsTrue(lp.CheckLoginPage("Ai deja un cont?"));
-            lp.Login("sandu@yahoo.com", "Automatic");
+            lp.Login("octavianautomation@yahoo.com", "Automation");
+            AccountPage acp = new AccountPage(_driver);
+            acp.CheckAccountPage("Bine ai venit, Octavian!");
             AllCategory cm = new AllCategory(_driver);
-            cm.AddToCartOneProduct(15,2);          
+            cm.AddToCartOneProduct(11,2);
+            CheckoutPage chp = new CheckoutPage(_driver);
+            Assert.IsTrue(chp.CheckCheckoutPage("Trimite comanda"));
         }
-
+        [Category("CategoryTests")]
         [Test]
 
         public void AddToCartMoreProducts()
@@ -61,12 +67,14 @@ namespace SavelectroAutomation.Tests.CategoryMenu
             mp.ClickAccesAccount();
             LoginPage lp = new LoginPage(_driver);
             Assert.IsTrue(lp.CheckLoginPage("Ai deja un cont?"));
-            lp.Login("sandu@yahoo.com", "Automatic");
+            lp.Login("octavianautomation@yahoo.com", "Automation");
+            AccountPage acp = new AccountPage(_driver);
+            acp.CheckAccountPage("Bine ai venit, Octavian!");
             AllCategory cm = new AllCategory(_driver);
-            cm.AddToCartMoreProducts(1, 1);
+            cm.AddToCartMoreProducts(10, 1);
             Assert.IsTrue(cm.CheckCartPage("Cos de cumparaturi"));
             cm.CloseCart();
-            cm.AddToCartMoreProducts(2, 1);
+            cm.AddToCartMoreProducts(3, 1);
             Assert.IsTrue(cm.CheckCartPage("Cos de cumparaturi"));
 
         }

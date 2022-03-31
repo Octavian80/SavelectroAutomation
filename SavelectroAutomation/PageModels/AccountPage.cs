@@ -43,7 +43,7 @@ namespace SavelectroAutomation.PageModels
             confirmNewPassordInput.Clear();
             confirmNewPassordInput.SendKeys(confirmNewPassword);
             var submitButton = driver.FindElement(By.CssSelector(submitSelector));
-            /*submitButton.Submit();*/
+            submitButton.Submit();
         }
     }
 }

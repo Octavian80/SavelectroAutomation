@@ -30,11 +30,13 @@ namespace SavelectroAutomation.PageModels
             }
         }
 
-
+       
 
          public Boolean CheckEmptyCart(string label)
         {
             return String.Equals(label.ToLower(), driver.FindElement(By.CssSelector(emptyCartLabel)).Text.ToLower());
         }
+
+        
     }
 }

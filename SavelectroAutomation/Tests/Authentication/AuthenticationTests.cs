@@ -21,6 +21,7 @@ namespace SavelectroAutomation.Tests.Authentication
             }
         }
 
+        [Category("Authentication")]
         [Test]
 
         public void AuthenticationPositive()
@@ -34,10 +35,12 @@ namespace SavelectroAutomation.Tests.Authentication
 
             LoginPage lp = new LoginPage(_driver);
             Assert.IsTrue(lp.CheckLoginPage("Ai deja un cont?"));
-            lp.Login("cornel@com.ro", "astra");
+            lp.Login("octavianautomation@yahoo.com", "Automation");
+            AccountPage ac = new AccountPage(_driver);
+            ac.CheckAccountPage("Bine ai venit, Octavian!");
         }
 
-
+        [Category("Authentication")]
         [Test, TestCaseSource("GetCredentialsDataCsv")]
 
         public void AuthenticationNegative(string email , string password,string emailError,string passwordError,string passwordLengthError,string mismatchError)

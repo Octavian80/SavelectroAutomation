@@ -72,7 +72,7 @@ namespace SavelectroAutomation.PageModels
             confirmButton.Click();*/
         }
 
-        public void AddToCartMoreProducts(int itemIndex, int subcategoryIndex) // method to add to chart one product
+        public void AddToCartMoreProducts(int itemIndex, int subcategoryIndex) // method for adding more then one product
         {
             var allCategory = driver.FindElement(By.Id(allCategorySelector));
             Actions actions = new Actions(driver);

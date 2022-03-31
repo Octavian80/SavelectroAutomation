@@ -11,7 +11,7 @@ namespace SavelectroAutomation.Tests.Account
     {
         string url = FrameworkConstants.GetUrl();
 
-
+        [Category("AccountTest")]
         [Test]
         public void ChangePasswordSucces()
         {
@@ -26,7 +26,7 @@ namespace SavelectroAutomation.Tests.Account
             lp.Login("octavianautomation@yahoo.com", "Automation");
             AccountPage ap = new AccountPage(_driver);
             Assert.IsTrue(lp.CheckLoginPage("Bine ai venit, Octavian!"));
-            ap.ChangePassword("aaaaaaaaaaaa", "aaaaaaaaaaaaaa1", "aaaaaaaaaaaa");
+            ap.ChangePassword("Automation", "Automation2022", "Automation2022");
         }
     }
 }

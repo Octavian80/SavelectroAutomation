@@ -11,6 +11,7 @@ namespace SavelectroAutomation.Tests.CartAdd
     {
         string url = FrameworkConstants.GetUrl();
 
+        [Category("CartTest")]
         [Test]
 
         public void EmptyngCart()
@@ -29,9 +30,7 @@ namespace SavelectroAutomation.Tests.CartAdd
             CartPage cap = new CartPage(_driver);
             cap.EmptyCart();
             Assert.IsTrue(cap.CheckEmptyCart("Cosul tau de cumparaturi este gol"));
-        }
-
-
+        }     
 
     }
 }
